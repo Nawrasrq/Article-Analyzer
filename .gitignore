@@ -1,0 +1,32 @@
+# Virtual environment
+venv/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+logs/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Pytest cache
+.pytest_cache/
+
+# Mypy cache
+.mypy_cache/
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Note: config/ and docs/ are intentionally tracked

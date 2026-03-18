@@ -1,35 +1,47 @@
 # Article Analyzer
 
-A Python-based project for scraping and analyzing articles from various websites. The project utilizes Natural Language Processing (NLP) techniques to perform analysis such as word and phrase count, overall and aspect based sentiment analysis.
+A Python tool for scraping and analyzing articles from any URL. Uses NLP techniques to extract word frequency, phrase patterns, and sentiment scores — including interactive aspect-based sentiment analysis.
 
 ## Features
-- Scrapes article text from specified URLs.
-- Extracts total and unique word count along with top 10 common words, phrases and their count.
-- Analyzes overall and word or phrase sentiment from articles using VADER sentiment analysis.
-- Allows cmd input of new words to use in aspect based sentiment analysis
+
+- Scrapes article text from a provided URL
+- Extracts total and unique word counts along with the top 10 most common words
+- Identifies top bigrams and trigrams (multi-word phrases)
+- Performs overall sentiment analysis using VADER
+- Performs aspect-based sentiment analysis on auto-discovered keywords and phrases
+- Interactive CLI for exploring additional words or phrases after the initial analysis
+- Writes diagnostic logs to `logs/article_analyzer.log`
 
 ## Project Structure
+
 ```
 article-analyzer/
-│
-├── article_analyzer.py           # Main script for analyzing articles
-├── requirements.txt              # Python dependencies
-└── README.md                     # Project documentation
+├── review_analyzer.py    # Main script (ArticleAnalyzer class + CLI entry point)
+├── requirements.txt      # Python dependencies
+├── README.md             # Project documentation
+└── LICENSE               # MIT License
 ```
 
-## Setup
+## Prerequisites
 
-### Prerequisites
-- Python 3.7 or higher
-- pip for installing Python packages
-- NLTK library resources for stopwords and sentiment analysis
+- Python 3.8 or higher
+- pip
 
-### Installation
+## Installation
+
 Clone the repository:
 
 ```bash
 git clone https://github.com/yourusername/article-analyzer.git
 cd article-analyzer
+```
+
+Create and activate a virtual environment (recommended):
+
+```bash
+python -m venv venv
+venv\Scripts\activate      # Windows
+# source venv/bin/activate  # Linux / macOS
 ```
 
 Install dependencies:
@@ -39,17 +51,19 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-To scrape an article and analyze it:
 
 ```bash
-python scripts/analysis.py
+python review_analyzer.py
 ```
-You will be prompted to enter the URL of the article you wish to analyze and afterwards, any more words or phrases for sentiment analysis.
+
+You will be prompted to paste a URL. After the analysis runs, you can enter additional words or phrases for aspect-based sentiment analysis:
 
 ```
 Enter new aspect(s) to analyze (comma-separated or 'exit' to quit):
 difficulty, storm, shoes
 ```
+
+Type `exit` to quit.
 
 ## Example Usage
 
@@ -107,3 +121,7 @@ Aspect-Based Sentiment Analysis: {'hurricane'}
 Enter new aspect(s) to analyze (comma-separated or 'exit' to quit): exit
 Exiting...
 ```
+
+## License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
